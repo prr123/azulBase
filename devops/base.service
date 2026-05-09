@@ -1,0 +1,18 @@
+[Unit]
+Description=https fastserver
+After=network.target
+
+[Service]
+ExecStart=/home/peter/go/src/service/http/fasthttps/fastHttpsWSNV12 /domain=imgerp.eu /port=9001 /index=indexSimpleFN /preload /dbg
+WorkingDirectory=/home/peter/go/src/service/http/fasthttps
+User=webadmin
+Group=webadmin
+Restart=always
+RestartSec=3
+
+# Capabilities
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=multi-user.target
